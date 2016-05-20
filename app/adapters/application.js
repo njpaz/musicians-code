@@ -13,6 +13,11 @@ export default RESTAdapter.extend({
         let camelKey = key.camelize();
         pay[key.camelize()] = pay[key];
 
+        // if you don't want to use Ember-specific models, you can just do:
+        //   let splitKey = key.split('_');
+        //   splitKey[1] = splitKey[1].charAt(0).toUpperCase() + splitKey[1].slice(1);
+        //   key = splitKey.join('');
+
         if (camelKey !== key) {
           delete pay[key];
         }
